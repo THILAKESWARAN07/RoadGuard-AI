@@ -1,0 +1,79 @@
+# YOLOv8 Training Configuration for RoadGuard AI
+# Road Damage Detection Model
+
+# Model Configuration
+model:
+  name: yolov8n.pt
+  size: n  # nano model for faster training/inference
+
+# Dataset Configuration
+dataset:
+  path: ../../data/road_damage/data.yaml
+  train: train/images
+  val: valid/images
+  test: test/images
+
+# Training Hyperparameters
+training:
+  imgsz: 640  # Image size
+  epochs: 50   # Number of training epochs
+  batch: auto  # Batch size (auto for optimal)
+  workers: auto  # Number of data loading workers
+  optimizer: auto  # Optimizer (auto for SGD/AdamW)
+  patience: 20  # Early stopping patience
+  device: auto  # Device (auto for CUDA if available, else CPU)
+  project: RoadGuard-AI  # Project name
+  name: pothole_detector  # Run name
+  exist_ok: false  # Overwrite existing project
+  pretrained: true  # Use pretrained weights
+  verbose: true  # Verbose output
+  save: true  # Save training checkpoints
+  save_period: -1  # Save checkpoint every n epochs (-1 for disabled)
+  cache: false  # Use cache for faster training
+
+# Inference Parameters
+inference:
+  conf: 0.25  # Confidence threshold
+  iou: 0.45  # IoU threshold for NMS
+  max_det: 300  # Maximum detections per image
+  vid_stride: 1  # Video frame-rate stride
+  half: false  # Use half-precision (FP16)
+  dnn: false  # Use OpenCV DNN for ONNX inference
+
+# Augmentation
+augmentation:
+  hsv_h: 0.015  # Image HSV-Hue augmentation
+  hsv_s: 0.7  # Image HSV-Saturation augmentation
+  hsv_v: 0.4  # Image HSV-Value augmentation
+  degrees: 0.0  # Image rotation (+/- deg)
+  translate: 0.1  # Image translation (+/- fraction)
+  scale: 0.5  # Image scale (+/- gain)
+  shear: 0.0  # Image shear (+/- deg)
+  perspective: 0.0  # Image perspective (+/- fraction)
+  flipud: 0.0  # Image flip up-down (probability)
+  fliplr: 0.5  # Image flip left-right (probability)
+  mosaic: 1.0  # Image mosaic (probability)
+  mixup: 0.0  # Image mixup (probability)
+
+# Logging
+logging:
+  project: RoadGuard-AI
+  name: pothole_detector
+  exist_ok: false
+
+# Validation
+validation:
+  save_json: false  # Save results to JSON
+  save_hybrid: false  # Save hybrid labels
+  conf: 0.001  # Confidence threshold for validation
+  iou: 0.6  # IoU threshold for validation
+  max_det: 300  # Maximum detections per image
+  half: false  # Use half-precision
+  dnn: false  # Use OpenCV DNN
+  plots: true  # Save validation plots
+  rect: false  # Rectangular validation
+
+# Class Names (for reference)
+classes:
+  0: pothole
+  1: manhole

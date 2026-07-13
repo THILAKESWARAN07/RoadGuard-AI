@@ -1,0 +1,47 @@
+# =========================
+# Python
+# =========================
+__pycache__/
+*.py[cod]
+*.pyc
+*.egg-info/
+.venv/
+venv/
+.env
+
+# =========================
+# Node.js
+# =========================
+node_modules/
+frontend/node_modules/
+
+# Build Output
+dist/
+build/
+coverage/
+
+# =========================
+# AI Models
+# =========================
+backend/ai/models/*.pt
+
+# =========================
+# Datasets & Databases
+# =========================
+data/
+*.db
+
+# =========================
+# Uploads & Logs
+# =========================
+uploads/
+backend/uploads/
+logs/
+
+# =========================
+# Editor & OS
+# =========================
+.vscode/*
+!.vscode/mcp.json
+.DS_Store
+Thumbs.db

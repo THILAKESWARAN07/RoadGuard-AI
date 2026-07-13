@@ -1,0 +1,3 @@
+"""
+AI configuration module.
+"""
