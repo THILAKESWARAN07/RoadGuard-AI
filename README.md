@@ -432,7 +432,10 @@ Deployment links will be updated once the application is successfully hosted.
 Developed by:
 
 - **Thilakeswaran D. G.**
-- **Team Members** (Add Names)
+  **Gobinath S**
+  **Asok R**
+
+-
 
 ---
 
